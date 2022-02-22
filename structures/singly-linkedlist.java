@@ -30,3 +30,18 @@ public class SinglyLinkedListDemoApp {
       numList.printList();
    }
 }
+
+ListInsertAfter(list, curNode, newNode) {
+   if (list⇢head == null) { // List empty
+      list⇢head = newNode
+      list⇢tail = newNode
+   }
+   else if (curNode == list⇢tail) { // Insert after tail
+      list⇢tail⇢next = newNode
+      list⇢tail = newNode
+   }
+   else {
+      newNode⇢next = curNode⇢next
+      curNode⇢next = newNode
+   }
+}
