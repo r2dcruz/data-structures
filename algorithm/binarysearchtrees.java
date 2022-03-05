@@ -13,3 +13,33 @@ BSTSearch(tree, key) {
    }
    return null // Not found
 }
+
+
+BSTInsert(tree, node) {
+   if (tree⇢root is null) {
+      tree⇢root = node
+   }
+   else {
+      currentNode = tree⇢root
+      while (currentNode is not null) {
+         if (node⇢key < currentNode⇢key) {
+            if (currentNode⇢left is null) {
+               currentNode⇢left = node
+               currentNode = null
+            }
+            else {
+               currentNode = currentNode⇢left
+            }
+         }
+         else {
+            if (currentNode⇢right is null) {
+               currentNode⇢right = node
+               currentNode = null
+            }
+            else {
+               currentNode = currentNode⇢right
+            }
+         }
+      }
+   }
+}
