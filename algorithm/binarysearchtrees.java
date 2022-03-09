@@ -95,3 +95,13 @@ BSTRemove(tree, key) {
    }
    return // Node not found
 }
+
+
+BSTPrintInorder(node) {
+   if (node is null)
+      return                     // "Ret"
+
+   BSTPrintInorder(node⇢left)   // "L"  
+   Print node                    // "Cur"
+   BSTPrintInorder(node⇢right)  // "R"
+}
