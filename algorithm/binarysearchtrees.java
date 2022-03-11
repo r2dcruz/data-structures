@@ -106,6 +106,7 @@ BSTPrintInorder(node) {
    BSTPrintInorder(node⇢right)  // "R"
 }
 
+<<<<<<< HEAD
 import java.util.Scanner;
 
 public class BinarySearchTreeDemo {
@@ -140,3 +141,25 @@ public class BinarySearchTreeDemo {
       System.out.println(BSTPrint.treeToString(tree.getRoot()));
    }
 }
+=======
+
+TrieInsert(root, string) {
+   node = root
+   for (character in string) {
+      if (character is not in node⇢children) {
+         node⇢children[character] = new TrieNode()
+      }
+      node = node⇢children[character]
+   }
+
+   if (0 is not in node⇢children) {
+      node⇢children[0] = new TrieNode()
+   }
+   return node⇢children[0]
+}
+
+trieRoot = new TrieNode()
+TrieInsert(trieRoot, "APPLE")
+TrieInsert(trieRoot, "APPLY")
+TrieInsert(trieRoot, "APP")
+>>>>>>> 326a3f54f40b1749f2b96c6799d5ba5ee5b55655
