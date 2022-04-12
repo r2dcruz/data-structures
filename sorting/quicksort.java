@@ -195,3 +195,22 @@ int partition(int[] numbers, int startIndex, int endIndex) {
    // "high" is the last index in the left segment.
    return high;
 }
+
+// quicksort() algorith
+
+void quicksort(int[] numbers, int startIndex, int endIndex) {
+   // Only attempt to sort the array segment if there are
+   // at least 2 elements
+   if (endIndex <= startIndex) {
+      return;
+   }
+          
+   // Partition the array segment
+   int high = partition(numbers, startIndex, endIndex);
+
+   // Recursively sort the left segment
+   quicksort(numbers, startIndex, high);
+
+   // Recursively sort the right segment
+   quicksort(numbers, high + 1, endIndex);
+}
