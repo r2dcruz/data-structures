@@ -72,3 +72,40 @@ public class MergeSortDemo {
    }
 }
 
+// merging partitions
+
+Merge(numbers, leftFirst, leftLast, rightLast) {
+   // Create temporary array mergedNumbers
+   // Initialize position variables
+ 
+   while (leftPos <= leftLast && rightPos <= rightLast) {
+      if (numbers[leftPos] <= numbers[rightPos]) {
+         mergedNumbers[mergePos] = numbers[leftPos]
+         ++leftPos
+      }
+      else {
+         mergedNumbers[mergePos] = numbers[rightPos]
+         ++rightPos
+      }
+      ++mergePos
+   }
+
+   // If left partition not empty, add remaining elements
+   while (leftPos <= leftLast) {
+      mergedNumbers[mergePos] = numbers[leftPos]
+      ++leftPos
+      ++mergePos
+   }
+ 
+   // If right partition not empty, add remaining elements
+   while (rightPos <= rightLast) {
+      mergedNumbers[mergePos] = numbers[rightPos]
+      ++rightPos
+      ++mergePos
+   }
+ 
+   // Copy merge number back to numbers
+   for (mergePos = 0; mergePos < mergedSize; ++mergePos) {
+      numbers[leftFirst + mergePos] = mergedNumbers[mergePos]
+   }
+}
