@@ -123,3 +123,27 @@ RadixSort(array, arraySize) {
       Clear all buckets
    }
 }
+
+// Returns the maximum length, in number of digits, out of all elements in the array
+RadixGetMaxLength(array, arraySize) {
+   maxDigits = 0
+   for (i = 0; i < arraySize; i++) {
+      digitCount = RadixGetLength(array[i])
+      if (digitCount > maxDigits)
+         maxDigits = digitCount
+   }
+   return maxDigits
+}
+
+// Returns the length, in number of digits, of value
+RadixGetLength(value) {
+   if (value == 0)
+      return 1
+
+   digits = 0
+   while (value != 0) {
+      digits = digits + 1
+      value = value / 10
+   }
+   return digits
+}
