@@ -58,3 +58,16 @@ ListAppend(list, newNode) {
       list⇢tail = newNode
    }
 }
+
+// prepend
+
+ListPrepend(list, newNode) {
+   if (list⇢head == null) { // list empty
+      list⇢head = newNode
+      list⇢tail = newNode
+   }
+   else {
+      newNode⇢next = list⇢head
+      list⇢head = newNode
+   }
+}
