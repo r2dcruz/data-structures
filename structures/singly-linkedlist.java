@@ -87,5 +87,26 @@ ListInsertAfter(list, curNode, newNode) {
       newNode⇢next = curNode⇢next
       curNode⇢next = newNode
    }
-}
 
+
+// error
+
+public void removeAfter(Node currentNode) {
+   if (currentNode == null && head != null) {
+      // Special case: remove head
+      Node succeedingNode = head.next;
+      head = succeedingNode;
+      if (succeedingNode == null) {
+          // Last item was removed
+          tail = null;
+      }
+   }
+   else if (currentNode.next != null) {
+      Node succeedingNode = currentNode.next.next;
+      currentNode.next = succeedingNode;
+      if (succeedingNode == null) {
+         // Remove tail
+         tail = currentNode;
+      }
+   }
+}
