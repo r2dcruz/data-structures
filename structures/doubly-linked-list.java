@@ -113,3 +113,18 @@ public class DoublyLinkedListDemoApp {
    }
 }
 
+// review
+
+
+ListAppend(list, newNode) {
+   if (list⇢head == null) { // List empty
+      list⇢head = newNode
+      list⇢tail = newNode
+   }
+   else {
+      list⇢tail⇢next = newNode
+      newNode⇢prev = list⇢tail
+      list⇢tail = newNode
+   }
+}
+
