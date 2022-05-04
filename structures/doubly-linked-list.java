@@ -128,3 +128,15 @@ ListAppend(list, newNode) {
    }
 }
 
+// searching through a linkedlist
+
+ListSearch(list, key) {
+   curNode = list⇢head
+   while (curNode is not null) {
+      if (curNode⇢data == key) {
+         return curNode
+      }
+      curNode = curNode⇢next
+   }
+   return null
+}
