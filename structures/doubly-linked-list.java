@@ -140,3 +140,29 @@ ListSearch(list, key) {
    }
    return null
 }
+
+// real commit review
+
+ListAppend(list, newNode) {
+   if (list⇢head == null) { // List empty
+      list⇢head = newNode
+      list⇢tail = newNode
+   }
+   else {
+      list⇢tail⇢next = newNode
+      newNode⇢prev = list⇢tail
+      list⇢tail = newNode
+   }
+}
+
+ListPrepend(list, newNode) {
+   if (list⇢head == null) { // List empty
+      list⇢head = newNode
+      list⇢tail = newNode
+   }
+   else {
+      newNode⇢next = list⇢head
+      list⇢head⇢prev = newNode
+      list⇢head = newNode
+   }
+}
