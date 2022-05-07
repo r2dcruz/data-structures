@@ -166,3 +166,24 @@ ListPrepend(list, newNode) {
       list⇢head = newNode
    }
 }
+
+// insert review
+
+ListInsertAfter(list, curNode, newNode) {
+   if (list⇢head == null) { // List empty
+      list⇢head = newNode
+      list⇢tail = newNode
+   }
+   else if (curNode == list⇢tail) { // Insert after tail
+      list⇢tail⇢next = newNode
+      newNode⇢prev = list⇢tail
+      list⇢tail = newNode
+   }
+   else {
+      sucNode = curNode⇢next
+      newNode⇢next = sucNode
+      newNode⇢prev = curNode
+      curNode⇢next = newNode
+      sucNode⇢prev = newNode
+   }
+}
