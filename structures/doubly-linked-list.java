@@ -187,3 +187,25 @@ ListInsertAfter(list, curNode, newNode) {
       sucNode⇢prev = newNode
    }
 }
+
+// remove
+
+ListRemove(list, curNode) {
+   sucNode = curNode⇢next
+   predNode = curNode⇢prev
+
+   if (sucNode is not null) {
+      sucNode⇢prev = predNode
+   }
+
+   if (predNode is not null) {
+      predNode⇢next = sucNode
+   }
+
+   if (curNode == list⇢head) { // Removed head
+      list⇢head = sucNode
+   }
+
+   if (curNode == list⇢tail) { // Removed tail
+      list⇢tail = predNode
+  
