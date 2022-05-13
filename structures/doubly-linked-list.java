@@ -293,3 +293,14 @@ ListRemove(list, curNode) {
          if (currentNode == tail)
             tail = predecessor;
       }
+
+// linkedlist traversals
+
+ListTraverse(list) {
+   curNode = list⇢head // Start at head
+
+   while (curNode is not null) { 
+      Print curNode's data        
+      curNode = curNode⇢next
+   }
+}
