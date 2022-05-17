@@ -304,3 +304,14 @@ ListTraverse(list) {
       curNode = curNode⇢next
    }
 }
+
+// reverse traversal algorithm
+
+ListTraverseReverse(list) {
+   curNode = list⇢tail // Start at tail
+
+   while (curNode is not null) { 
+      Print curNode's data        
+      curNode = curNode⇢prev
+   }
+}
