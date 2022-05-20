@@ -211,3 +211,28 @@ ListInsertionSortDoublyLinked(list) {
       curNode = nextNode
    }
 }
+
+// Sorting a singly-linked list with insertion sort.
+
+
+
+ListInsertionSortSinglyLinked(list) {
+   beforeCurrent = list⇢head
+   curNode = list⇢head⇢next
+   while (curNode != null) {
+      next = curNode⇢next
+      position = ListFindInsertionPosition(list, curNode⇢data)
+
+      if (position == beforeCurrent)
+         beforeCurrent = curNode
+      else {
+         ListRemoveAfter(list, beforeCurrent)
+         if (position == null)
+            ListPrepend(list, curNode)
+         else
+            ListInsertAfter(list, position, curNode)
+      }
+
+      curNode = next
+   }
+}
