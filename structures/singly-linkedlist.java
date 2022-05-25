@@ -236,3 +236,15 @@ ListInsertionSortSinglyLinked(list) {
       curNode = next
    }
 }
+
+// insertion algorithm
+
+ListFindInsertionPosition(list, dataValue) {
+   curNodeA = null
+   curNodeB = list⇢head
+   while (curNodeB != null and dataValue > curNodeB⇢data) {
+      curNodeA = curNodeB
+      curNodeB = curNodeB⇢next
+   }
+   return curNodeA
+}
