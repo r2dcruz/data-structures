@@ -296,3 +296,34 @@ public void insertionSortDoublyLinked() {
       currentNode = nextNode;
    }
 }
+
+// Insertion sort algorithm for singly-linked lists
+
+public void insertionSortSinglyLinked() {
+   Node beforeCurrent = m_head;
+   Node currentNode = m_head.next;
+   while (currentNode != null) {
+      Node nextNode = currentNode.next;
+      Node position = findInsertionPosition(currentNode.data);
+      if (position == beforeCurrent)
+         beforeCurrent = currentNode;
+      else {
+         removeAfter(beforeCurrent);
+         if (position == null)
+            prepend(currentNode);
+         else
+            insertAfter(position, currentNode);
+      }
+      currentNode = nextNode;
+   }
+}
+
+public Node findInsertionPosition(int dataValue) {
+   Node positionA = null;
+   Node positionB = m_head;
+   while (positionB != null && dataValue > positionB.data) {
+      positionA = positionB;
+      positionB = positionB.next;
+   }
+   return positionA;
+}
