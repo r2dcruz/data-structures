@@ -327,3 +327,44 @@ public Node findInsertionPosition(int dataValue) {
    }
    return positionA;
 }
+
+//
+
+ListAppend(list, newNode) {
+   list⇢tail⇢next = newNode
+   list⇢tail = newNode
+}
+
+
+ListPrepend(list, newNode) {
+   newNode⇢next = list⇢head⇢next
+   list⇢head⇢next = newNode
+   if (list⇢head == list⇢tail) { // empty list
+      list⇢tail = newNode;
+   }
+}
+
+
+ListInsertAfter(list, curNode, newNode) {
+   if (curNode == list⇢tail) { // Insert after tail
+      list⇢tail⇢next = newNode
+      list⇢tail = newNode
+   }
+   else { 
+      newNode⇢next = curNode⇢next
+      curNode⇢next = newNode
+   }
+}
+
+
+ListRemoveAfter(list, curNode) {
+   if (curNode is not null and curNode⇢next is not null) {
+      sucNode = curNode⇢next⇢next
+      curNode⇢next = sucNode
+     
+      if (sucNode is null) {
+         // Removed tail
+         list⇢tail = curNode
+      }
+   }
+}
