@@ -368,3 +368,66 @@ ListRemoveAfter(list, curNode) {
       }
    }
 }
+
+// Doubly-linked list with dummy node: append, prepend, insert after, and remove operations.
+
+ListAppend(list, newNode) {
+   list⇢tail⇢next = newNode
+   newNode⇢prev = list⇢tail
+   list⇢tail = newNode
+}
+
+
+ListPrepend(list, newNode) {
+   firstNode = list⇢head⇢next
+
+   // Set the next and prev pointers for newNode
+   newNode⇢next = list⇢head⇢next
+   newNode⇢prev = list⇢head
+
+   // Set the dummy node's next pointer
+   list⇢head⇢next = newNode
+
+   // Set prev on former first node
+   if (firstNode is not null) {
+      firstNode⇢prev = newNode
+   }
+}
+
+
+ListInsertAfter(list, curNode, newNode) {
+   if (curNode == list⇢tail) { // Insert after tail
+      list⇢tail⇢next = newNode
+      newNode⇢prev = list⇢tail
+      list⇢tail = newNode
+   }
+   else {
+      sucNode = curNode⇢next
+      newNode⇢next = sucNode
+      newNode⇢prev = curNode
+      curNode⇢next = newNode
+      sucNode⇢prev = newNode
+   }
+}
+
+
+ListRemove(list, curNode) {
+   if (curNode == list⇢head) {
+      // Dummy node cannot be removed
+      return
+   }
+
+   sucNode = curNode⇢next 
+   predNode = curNode⇢prev 
+  
+   if (sucNode is not null) {
+      sucNode⇢prev = predNode   
+   }
+  
+   // Predecessor node is always non-null
+   predNode⇢next = sucNode
+  
+   if (curNode == list⇢tail) { // Removed tail
+      list⇢tail = predNode
+   }
+}
