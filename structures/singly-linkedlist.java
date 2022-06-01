@@ -431,3 +431,20 @@ ListRemove(list, curNode) {
       list⇢tail = predNode
    }
 }
+
+//
+
+ListAppend(list, newNode) {
+   newNode⇢prev = list⇢tail⇢prev
+   newNode⇢next = list⇢tail
+   list⇢tail⇢prev⇢next = newNode
+   list⇢tail⇢prev = newNode
+}
+
+ListPrepend(list, newNode) {
+   firstNode = list⇢head⇢next
+   newNode⇢next = list⇢head⇢next
+   newNode⇢prev = list⇢head
+   list⇢head⇢next = newNode
+   firstNode⇢prev = newNode
+}
