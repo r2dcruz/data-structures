@@ -448,3 +448,34 @@ ListPrepend(list, newNode) {
    list⇢head⇢next = newNode
    firstNode⇢prev = newNode
 }
+
+// part 2
+
+ListInsertAfter(list, curNode, newNode) {
+   if (curNode == list⇢tail) {
+      // Can't insert after dummy tail
+      return
+   }
+   
+   sucNode = curNode⇢next
+   newNode⇢next = sucNode
+   newNode⇢prev = curNode
+   curNode⇢next = newNode
+   sucNode⇢prev = newNode
+}
+
+ListRemove(list, curNode) {
+   if (curNode == list⇢head || curNode == list⇢tail) {
+      // Dummy nodes cannot be removed
+      return
+   }
+
+   sucNode = curNode⇢next 
+   predNode = curNode⇢prev 
+  
+   // Successor node is never null
+   sucNode⇢prev = predNode
+  
+   // Predecessor node is never null
+   predNode⇢next = sucNode
+}
