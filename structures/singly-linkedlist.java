@@ -479,3 +479,16 @@ ListRemove(list, curNode) {
    // Predecessor node is never null
    predNode⇢next = sucNode
 }
+
+// recursion
+
+ListTraverse(list) {
+   ListTraverseRecursive(list⇢head)
+}
+
+ListTraverseRecursive(node) {
+   if (node is not null) {
+      Visit node
+      ListTraverseRecursive(node⇢next)
+   }
+}
