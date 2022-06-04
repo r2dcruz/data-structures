@@ -492,3 +492,19 @@ ListTraverseRecursive(node) {
       ListTraverseRecursive(node⇢next)
    }
 }
+
+//
+
+ListSearch(list, key) {
+   return ListSearchRecursive(key, list⇢head)
+}
+
+ListSearchRecursive(key, node) {
+   if (node is not null) {
+      if (node⇢data == key) {
+         return node
+      }
+      return ListSearchRecursive(key, node⇢next)
+   }
+   return null
+}
