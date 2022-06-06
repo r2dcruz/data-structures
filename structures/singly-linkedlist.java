@@ -508,3 +508,16 @@ ListSearchRecursive(key, node) {
    }
    return null
 }
+
+// traverse
+
+ListTraverseReverse(list) {
+   ListTraverseReverseRecursive(list⇢head)
+}
+
+ListTraverseReverseRecursive(node) {
+   if (node is not null) {
+      ListTraverseReverseRecursive(node⇢next)
+      Visit node
+   }
+}
