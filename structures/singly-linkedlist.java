@@ -521,3 +521,21 @@ ListTraverseReverseRecursive(node) {
       Visit node
    }
 }
+
+//
+
+
+StackPush(stack, item) {
+   newNode = Allocate new linked list node
+   newNode⇢next = null
+   newNode⇢data = item
+
+   // Insert as list head (top of stack)
+   ListPrepend(stack, newNode)
+}
+
+StackPop(stack) {
+   headData = stack⇢head⇢data
+   ListRemoveAfter(stack, null)
+   return headData
+}
