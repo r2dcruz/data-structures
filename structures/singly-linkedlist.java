@@ -522,7 +522,7 @@ ListTraverseReverseRecursive(node) {
    }
 }
 
-//
+// stack linkedlist
 
 
 StackPush(stack, item) {
@@ -537,5 +537,22 @@ StackPush(stack, item) {
 StackPop(stack) {
    headData = stack⇢head⇢data
    ListRemoveAfter(stack, null)
+   return headData
+} 
+
+// queue linkedlist
+
+// QueueEnqueue(queue, item) {
+   newNode = Allocate new linked list node
+   newNode⇢next = null
+   newNode⇢data = item
+
+   // Insert node as list tail (end of queue)
+   ListAppend(queue, newNode)
+}
+
+QueueDequeue(queue) {
+   headData = queue⇢head⇢data
+   ListRemoveAfter(queue, null)
    return headData
 }
