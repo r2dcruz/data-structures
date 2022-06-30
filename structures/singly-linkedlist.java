@@ -741,3 +741,21 @@ public class QueueDemo {
       numQueue.print();
    }
 }
+
+// array base
+
+
+ArrayListAppend(list, newItem) {
+   if (list⇢allocationSize == list⇢length) {
+      ArrayListResize(list, list⇢length * 2)
+   }
+   list⇢array[list⇢length] = newItem
+   list⇢length = list⇢length + 1
+}
+
+ArrayListResize(list, newAllocationSize) {
+   newArray = new array of size newAllocationSize
+   Copy all elements from list⇢array to newArray
+   list⇢array = newArray
+   list⇢allocationSize = newAllocationSize
+}
