@@ -759,3 +759,28 @@ ArrayListResize(list, newAllocationSize) {
    list⇢array = newArray
    list⇢allocationSize = newAllocationSize
 }
+
+// prepend
+
+
+ArrayListPrepend(list, newItem) {
+   if (list⇢allocationSize == list⇢length) {
+      ArrayListResize(list, list⇢length * 2)
+   }
+   for (i = list⇢length; i > 0; i--) {
+      list⇢array[i] = list⇢array[i - 1]
+   }
+   list⇢array[0] = newItem
+   list⇢length = list⇢length + 1
+}
+
+ArrayListInsertAfter(list, index, newItem) {
+   if (list⇢allocationSize == list⇢length) {
+      ArrayListResize(list, list⇢length * 2)
+   }
+   for (i = list⇢length; i > index + 1; i--) {
+      list⇢array[i] = list⇢array[i - 1]
+   }
+   list⇢array[index + 1] = newItem
+   list⇢length = list⇢length + 1
+}
