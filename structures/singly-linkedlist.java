@@ -784,3 +784,24 @@ ArrayListInsertAfter(list, index, newItem) {
    list⇢array[index + 1] = newItem
    list⇢length = list⇢length + 1
 }
+
+// array search
+
+
+ArrayListSearch(list, item) {
+   for (i = 0; i < list⇢length; i++) {
+      if (list⇢array[i] == item) {
+         return i
+      }
+   }
+   return -1 // not found
+}
+ 
+ArrayListRemoveAt(list, index) {
+   if (index >= 0 && index < list⇢length) {
+      for (i = index; i < list⇢length - 1; i++) {
+         list⇢array[i] = list⇢array[i + 1]
+      }
+      list⇢length = list⇢length - 1
+   }
+}  
