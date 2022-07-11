@@ -894,3 +894,33 @@ public void insertAfter(int index, int newItem) {
    // Update the array's length
    ++arrayListLength;
 }
+
+// search and remove
+
+public int search(int item) {
+   // Iterate through the entire array
+   for (int i = 0; i < arrayListLength; ++i) {
+      // If the current item matches the search
+      // item, return the current index immediately.
+      if (arrayData[i] == item) {
+         return i;
+      }
+   }
+
+   // If the above loop finishes without returning,
+   // then the search item was not found.
+   return -1;
+}
+
+public void removeAt(int index) {
+   // Make sure the index is valid for the current array
+   if (index >= 0 && index < arrayListLength) {
+      // Shift down all items after the given index
+      for (int i = index; i < arrayListLength - 1; ++i) {
+         arrayData[i] = arrayData[i + 1];
+      }
+
+      // Update the array's length
+      --arrayListLength;
+   }
+}
