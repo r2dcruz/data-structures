@@ -145,3 +145,25 @@ class OpenAddressingBucket {
       return this == EMPTY_SINCE_START || this == EMPTY_AFTER_REMOVAL;
    }
 }
+
+// review
+
+
+HashInsert(hashTable, item) {
+   if (HashSearch(hashTable, item⇢key) == null) {
+      bucketList = hashTable[Hash(item⇢key)]
+      node = Allocate new linked list node
+      node⇢next = null
+      node⇢data = item
+      ListAppend(bucketList, node)
+   }
+}
+
+HashSearch(hashTable, key) {
+   bucketList = hashTable[Hash(key)]
+   itemNode = ListSearch(bucketList, key)
+   if (itemNode is not null)
+      return itemNode⇢data
+   else
+      return null
+}
