@@ -167,3 +167,32 @@ HashSearch(hashTable, key) {
    else
       return null
 }
+
+// hash insert
+
+ashInsert(hashTable, item) {
+   if (HashSearch(hashTable, item⇢key) == null) {
+      bucketList = hashTable[Hash(item⇢key)]
+      node = Allocate new linked list node
+      node⇢next = null
+      node⇢data = item
+      ListAppend(bucketList, node)
+   }
+}
+
+HashRemove(hashTable, item) {
+   bucketList = hashTable[Hash(item⇢key)]
+   itemNode = ListSearch(bucketList, item⇢key)
+   if (itemNode is not null) {
+      ListRemove(bucketList, itemNode)
+   } 
+}
+
+HashSearch(hashTable, key) {
+   bucketList = hashTable[Hash(key)]
+   itemNode = ListSearch(bucketList, key)
+   if (itemNode is not null)
+      return itemNode⇢data
+   else
+      return null
+}
