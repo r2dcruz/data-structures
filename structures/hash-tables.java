@@ -196,3 +196,27 @@ HashSearch(hashTable, key) {
    else
       return null
 }
+
+// linear probing
+
+HashInsert(hashTable, item) {
+   // Hash function determines initial bucket
+   bucket = Hash(item.key)    
+   bucketsProbed = 0
+   N = hashTable's size
+   while (bucketsProbed < N) {
+      // Insert item in next empty bucket
+      if (hashTable[bucket] is Empty) {
+         hashTable[bucket] = item
+         return true 
+      }
+
+      // Increment bucket index
+      bucket = (bucket + 1) % N
+
+      // Increment number of buckets probed
+      ++bucketsProbed
+   }
+
+   return false      
+}
