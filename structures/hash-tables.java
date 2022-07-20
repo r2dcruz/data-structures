@@ -220,3 +220,28 @@ HashInsert(hashTable, item) {
 
    return false      
 }
+
+// linear probing
+
+
+HashRemove(hashTable, key) {  
+   // Hash function determines initial bucket
+   bucket = Hash(key)
+   bucketsProbed = 0
+
+   while ((hashTable[bucket] is not EmptySinceStart) and
+         (bucketsProbed < N)) {
+
+      if ((hashTable[bucket] is not Empty) and
+         (hashTable[bucket]⇢key == key)) {
+         hashTable[bucket] = EmptyAfterRemoval
+         return
+      }
+
+      // Increment bucket index
+      bucket = (bucket + 1) % N
+
+      // Increment number of buckets probed
+      ++bucketsProbed
+   }
+}
