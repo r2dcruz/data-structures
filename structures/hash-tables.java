@@ -203,7 +203,7 @@ HashInsert(hashTable, item) {
    // Hash function determines initial bucket
    bucket = Hash(item.key)    
    bucketsProbed = 0
-   N = hashTable's size
+   //N = hashTable's size
    while (bucketsProbed < N) {
       // Insert item in next empty bucket
       if (hashTable[bucket] is Empty) {
