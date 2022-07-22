@@ -270,3 +270,29 @@ HashSearch(hashTable, key) {
 
    return null  // Item not found
 }
+
+// insert
+
+HashInsert(hashTable, item) {
+   i = 0
+   bucketsProbed = 0
+
+   // Hash function determines initial bucket
+   bucket = Hash(item⇢key) % N
+   while (bucketsProbed < N) {
+      // Insert item in next empty bucket 
+      if (hashTable[bucket] is Empty) {
+         hashTable[bucket] = item
+         return true  
+      }
+
+      // Increment i and recompute bucket index
+      // c1 and c2 are programmer-defined constants for quadratic probing
+      i = i + 1
+      bucket = (Hash(item⇢key) + c1 * i + c2 * i * i) % N
+
+      // Increment number of buckets probed
+      bucketsProbed = bucketsProbed + 1
+   }
+   return false       
+}
