@@ -296,3 +296,53 @@ HashInsert(hashTable, item) {
    }
    return false       
 }
+
+// having trouble
+
+HashRemove(hashTable, key) {
+   i = 0
+   bucketsProbed = 0
+
+   // Hash function determines initial bucket
+   bucket = Hash(key) % N
+
+   while ((hashTable[bucket] is not EmptySinceStart) and (bucketsProbed < N)) {
+      if ((hashTable[bucket] is Occupied) and (hashTable[bucket]⇢key == key)) {
+         hashTable[bucket] = EmptyAfterRemoval
+         return true
+      }
+
+      // Increment i and recompute bucket index
+      // c1 and c2 are programmer-defined constants for quadratic probing
+      i = i + 1
+      bucket = (Hash(key) + c1 * i + c2 * i * i) % N
+
+      // Increment number of buckets probed
+      bucketsProbed = bucketsProbed + 1
+   }
+   return false // key not found
+}
+
+
+HashSearch(hashTable, key) {
+   i = 0
+   bucketsProbed = 0
+
+   // Hash function determines initial bucket
+   bucket = Hash(key) % N
+
+   while ((hashTable[bucket] is not EmptySinceStart) and (bucketsProbed < N)) {
+      if ((hashTable[bucket] is Occupied) and (hashTable[bucket]⇢key == key)) {
+         return hashTable[bucket]
+      }
+
+      // Increment i and recompute bucket index
+      // c1 and c2 are programmer-defined constants for quadratic probing
+      i = i + 1
+      bucket = (Hash(key) + c1 * i + c2 * i * i) % N
+
+      // Increment number of buckets probed
+      bucketsProbed = bucketsProbed + 1
+   }
+   return null  // key not found
+}
