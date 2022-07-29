@@ -346,3 +346,28 @@ HashSearch(hashTable, key) {
    }
    return null  // key not found
 }
+
+// resize
+
+
+HashResize(hashTable, currentSize) {
+   newSize = nextPrime(currentSize * 2)
+
+   newArray = Allocate new array of size newSize
+   Set all entries in newArray to EmptySinceStart
+
+   bucket = 0
+   while (bucket < currentSize) {
+      if (hashTable[bucket] is not Empty) {
+         key = hashTable[bucket]
+         HashInsert(newArray, key)
+      }
+      bucket = bucket + 1
+   }
+
+   return newArray
+}
+
+Hash(key, tableSize) {
+   return key % tableSize
+}
