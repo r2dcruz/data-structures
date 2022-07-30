@@ -107,3 +107,9 @@ HashSearch(hashTable, key) {
    return null  // key not found
 }
 
+// wow
+
+HashRemainder(int key) {
+   return key % N
+}
+
