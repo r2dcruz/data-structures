@@ -113,3 +113,14 @@ HashRemainder(int key) {
    return key % N
 }
 
+// mid? lol
+
+HashMidSquare(int key) {
+   squaredKey = key * key
+   
+   lowBitsToRemove = (32 - R) / 2
+   extractedBits = squaredKey >> lowBitsToRemove
+   extractedBits = extractedBits & (0xFFFFFFFF >> (32 - R)) 
+
+   return extractedBits % N
+}
