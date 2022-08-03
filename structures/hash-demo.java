@@ -124,3 +124,15 @@ HashMidSquare(int key) {
 
    return extractedBits % N
 }
+
+// hash multiply
+
+HashMultiplicative(string key) {
+   stringHash = InitialValue 
+
+   for (each character strChar in key) {
+      stringHash = (stringHash * HashMultiplier) + strChar
+   }
+
+   return stringHash % N
+}
