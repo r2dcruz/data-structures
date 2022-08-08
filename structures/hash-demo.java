@@ -136,3 +136,15 @@ HashMultiplicative(string key) {
 
    return stringHash % N
 }
+
+// hash search
+
+
+HashSearch(hashTable, key) {
+   if (hashTable[key] is not Empty) {
+      return hashTable[key]
+   }
+   else {
+      return null
+   }
+}
