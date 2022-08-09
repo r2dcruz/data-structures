@@ -148,3 +148,22 @@ HashSearch(hashTable, key) {
       return null
    }
 }
+
+// Direct hashing: Insert, remove, and search operations use item's key as bucket index.
+
+HashInsert(hashTable, item) {
+   hashTable[item⇢key] = item 
+}
+
+HashRemove(hashTable, item) {
+   hashTable[item⇢key] = Empty
+}
+
+HashSearch(hashTable, key) {
+   if (hashTable[key] is not Empty) {
+      return hashTable[key]
+   }
+   else  {
+      return null
+   }
+}
