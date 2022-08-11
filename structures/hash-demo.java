@@ -167,3 +167,22 @@ HashSearch(hashTable, key) {
       return null
    }
 }
+
+// redo
+
+HashInsert(hashTable, item) {
+   hashTable[item⇢key] = item 
+}
+
+HashRemove(hashTable, item) {
+   hashTable[item⇢key] = Empty
+}
+
+HashSearch(hashTable, key) {
+   if (hashTable[key] is not Empty) {
+      return hashTable[key]
+   }
+   else  {
+      return null
+   }
+}
