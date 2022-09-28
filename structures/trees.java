@@ -140,3 +140,29 @@ BSTSearch(tree, key) {
    }
    return null // Not found
 }
+
+// search
+
+
+BTreeSearch(node, key) {
+   if (node is not null) {
+      if (key == node⇢A ||
+          key == node⇢B ||
+          key == node⇢C) {
+         return node
+      }
+      if (key < node⇢A) {
+         return BTreeSearch(node⇢left, key)
+      }
+      else if (node⇢B is null || key < node⇢B) {
+         return BTreeSearch(node⇢middle1, key)
+      }
+      else if (node⇢C is null || key < node⇢C) {
+         return BTreeSearch(node⇢middle2, key)
+      }
+      else {
+         return BTreeSearch(node⇢right, key)
+      }
+   }
+   return null
+}
