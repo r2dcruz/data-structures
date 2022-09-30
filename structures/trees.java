@@ -166,3 +166,22 @@ BTreeSearch(node, key) {
    }
    return null
 }
+
+// trees
+
+BTreeSplit(tree, node, nodeParent) {
+   if (node is not full) {
+      return null
+   }
+
+   splitLeft = new BTreeNode(node⇢A, node⇢left, node⇢middle1)
+   splitRight = new BTreeNode(node⇢C, node⇢middle2, node⇢right)
+   if (nodeParent is not null) {
+      BTreeInsertKeyWithChildren(nodeParent, node⇢B, splitLeft, splitRight)
+   }
+   else {
+      nodeParent = new BTreeNode(node⇢B, splitLeft, splitRight)
+      tree⇢root = nodeParent
+   }
+   return nodeParent
+}
