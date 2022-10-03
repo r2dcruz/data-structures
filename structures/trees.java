@@ -185,3 +185,29 @@ BTreeSplit(tree, node, nodeParent) {
    }
    return nodeParent
 }
+
+//
+
+BTreeInsertKeyWithChildren(parent, key, leftChild, rightChild) {
+   if (key < parent⇢A) {
+      parent⇢C = parent⇢B
+      parent⇢B = parent⇢A
+      parent⇢A = key
+      parent⇢right = parent⇢middle2
+      parent⇢middle2 = parent⇢middle1
+      parent⇢middle1 = rightChild
+      parent⇢left = leftChild
+   }
+   else if (parent⇢B is null || key < parent⇢B) {
+      parent⇢C = parent⇢B
+      parent⇢B = key
+      parent⇢right = parent⇢middle2
+      parent⇢middle2 = rightChild
+      parent⇢middle1 = leftChild
+   }
+   else {
+      parent⇢C = key
+      parent⇢right = rightChild
+      parent⇢middle2 = leftChild
+   }
+}
