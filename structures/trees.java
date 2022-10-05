@@ -230,3 +230,29 @@ BTreeSplit(tree, node, nodeParent) {
    }
    return nodeParent
 }
+
+// insert
+
+
+BTreeInsert(node, key) {
+   if (key is in node) {
+      return null // duplicates not allowed
+   }
+   if (node is full) {
+      node = BTreeSplit(tree, node, nodeParent)
+   }
+   if (node is not leaf) {
+      if (key < node⇢A)
+         return BTreeInsert(node⇢left, key)
+      else if (node⇢B is null || key < node⇢B)
+         return BTreeInsert(node⇢middle1, key)
+      else if (node⇢C is null || key < node⇢C)
+         return BTreeInsert(node⇢middle2, key)
+      else
+         return BTreeInsert(node⇢right, key)
+   }
+   else {
+      BTreeInsertIntoLeaf(node, key)
+      return node
+   }
+}
