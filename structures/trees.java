@@ -256,3 +256,28 @@ BTreeInsert(node, key) {
       return node
    }
 }
+
+// run it
+
+
+BTreeRemoveKey(node, keyIndex) {
+   if (keyIndex == 0) {
+      node⇢A = node⇢B
+      node⇢B = node⇢C
+      node⇢C = null
+      node⇢left = node⇢middle1
+      node⇢middle1 = node⇢middle2
+      node⇢middle2 = node⇢right
+      node⇢right = null
+   }
+   else if (keyIndex == 1) {
+      node⇢B = node⇢C
+      node⇢C = null
+      node⇢middle2 = node⇢right
+      node⇢right = null
+   }
+   else if (keyIndex == 2) {
+      node⇢C = null
+      node⇢right = null
+   }
+}
