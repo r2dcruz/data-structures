@@ -281,3 +281,13 @@ BTreeRemoveKey(node, keyIndex) {
       node⇢right = null
    }
 }
+
+// tree review
+
+BTreeRotateLeft(node) {
+   leftSibling = BTreeGetLeftSibling(node)
+   keyForLeftSibling = BTreeGetParentKeyLeftOfChild(node⇢parent, node)
+   BTreeAddKeyAndChild(leftSibling, keyForLeftSibling, node⇢left)
+   BTreeSetParentKeyLeftOfChild(node⇢parent, node, node⇢A)     
+   BTreeRemoveKey(node, 0)
+}
