@@ -291,3 +291,15 @@ BTreeRotateLeft(node) {
    BTreeSetParentKeyLeftOfChild(node⇢parent, node, node⇢A)     
    BTreeRemoveKey(node, 0)
 }
+
+// go back to reviewing trees
+
+if (currentNode⇢key == desiredKey) { 
+   return currentNode; // The desired node was found
+}
+else if (desiredKey < currentNode⇢key) {
+   // Visit left child, repeat
+}
+else if (desiredKey > currentNode⇢key) {
+   // Visit right child, repeat
+}

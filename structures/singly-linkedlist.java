@@ -977,7 +977,7 @@ public class ArrayListDemo {
          System.out.println("Unknown method: " + method);
       }
       
-      System.out.println();
+      System.out.println();   
       System.out.println("-- Array after operation --");
       myList.printInfo();
       System.out.println();
