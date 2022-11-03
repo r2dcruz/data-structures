@@ -303,3 +303,15 @@ else if (desiredKey < currentNode⇢key) {
 else if (desiredKey > currentNode⇢key) {
    // Visit right child, repeat
 }
+
+// ano
+
+if (currentNode⇢key == desiredKey) { 
+   return currentNode; // The desired node was found
+}
+else if (desiredKey < currentNode⇢key) {
+   // Visit left child, repeat
+}
+else if (desiredKey > currentNode⇢key) {
+   // Visit right child, repeat
+}
