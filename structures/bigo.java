@@ -36,3 +36,15 @@ FindMin(x, y) {
     
     return -1   // not found
  }
+
+ // linear
+
+ LinearSearch(numbers, numbersSize, key) {
+   for (i = 0; i < numbersSize; ++i) {
+       if (numbers[i] == key) {
+          return i
+       }
+    }
+    
+    return -1 // not found
+ }
