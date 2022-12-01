@@ -61,3 +61,20 @@ FindMin(x, y) {
       Merge(numbers, i, j, k)      // Merge parts
    }
 }
+
+// quadratic
+
+SelectionSort(numbers, numbersSize) { 
+   for (i = 0; i < numbersSize; ++i) {
+      indexSmallest = i
+      for (j = i + 1; j < numbersSize; ++j) {
+         if (numbers[j] < numbers[indexSmallest]) {
+            indexSmallest = j
+         }
+      }
+      
+      temp = numbers[i]
+      numbers[i] = numbers[indexSmallest]
+      numbers[indexSmallest] = temp
+   }
+}
