@@ -315,3 +315,121 @@ else if (desiredKey < currentNode⇢key) {
 else if (desiredKey > currentNode⇢key) {
    // Visit right child, repeat
 }
+
+// csc130
+
+public class AVLTree {
+   private Node root;
+   
+   private class Node {
+       int data;
+       Node left;
+       Node right;
+       int height;
+       
+       Node(int data) {
+           this.data = data;
+           this.height = 1;
+       }
+   }
+   
+   private int height(Node node) {
+       if (node == null) {
+           return 0;
+       }
+       return node.height;
+   }
+   
+   private int balanceFactor(Node node) {
+       if (node == null) {
+           return 0;
+       }
+       return height(node.left) - height(node.right);
+   }
+   
+   private Node rotateLeft(Node node) {
+       Node newRoot = node.right;
+       node.right = newRoot.left;
+       newRoot.left = node;
+       node.height = Math.max(height(node.left), height(node.right)) + 1;
+       newRoot.height = Math.max(height(newRoot.left), height(newRoot.right)) + 1;
+       return newRoot;
+   }
+   
+   private Node rotateRight(Node node) {
+       Node newRoot = node.left;
+       node.left = newRoot.right;
+       newRoot.right = node;
+       node.height = Math.max(height(node.left), height(node.right)) + 1;
+       newRoot.height = Math.max(height(newRoot.left), height(newRoot.right)) + 1;
+       return newRoot;
+   }
+   
+   public void insert(int data) {
+       root = insert(root, data);
+   }
+   
+   private Node insert(Node node, int data) {
+       if (node == null) {
+           return new Node(data);
+       }
+       if (data < node.data) {
+           node.left = insert(node.left, data);
+       } else if (data > node.data) {
+           node.right = insert(node.right, data);
+       } else {
+           return node;
+       }
+       node.height = Math.max(height(node.left), height(node.right)) + 1;
+       int balanceFactor = balanceFactor(node);
+       if (balanceFactor > 1 && data < node.left.data) {
+           return rotateRight(node);
+       }
+       if (balanceFactor < -1 && data > node.right.data) {
+           return rotateLeft(node);
+       }
+       if (balanceFactor > 1 && data > node.left.data) {
+           node.left = rotateLeft(node.left);
+           return rotateRight(node);
+       }
+       if (balanceFactor < -1 && data < node.right.data) {
+           node.right = rotateRight(node.right);
+           return rotateLeft(node);
+       }
+       return node;
+   }
+   
+   public void inorderTraversal() {
+       inorderTraversal(root);
+   }
+   
+   private void inorderTraversal(Node node) {
+       if (node != null) {
+           inorderTraversal(node.left);
+           System.out.print(node.data + " ");
+           inorderTraversal(node.right);
+       }
+   }
+}
+
+public int minHeight() {
+   return minHeight(root);
+}
+
+private int minHeight(Node node) {
+   if (node == null) {
+       return 0;
+   }
+   return 1 + Math.min(minHeight(node.left), minHeight(node.right));
+}
+
+public int maxHeight() {
+   return maxHeight(root);
+}
+
+private int maxHeight(Node node) {
+   if (node == null) {
+       return 0;
+   }
+   return 1 + Math.max(maxHeight(node.left), maxHeight(node.right));
+}
